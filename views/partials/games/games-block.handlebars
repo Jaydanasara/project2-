@@ -1,0 +1,24 @@
+
+<form class="create-form">
+
+	  <div class="from-group">
+    <label for="team">{{week16}}</label><br>
+    <input type="radio" name="team" value="{{Home}}" checked> {{Home}}<br>
+    <input type="radio" name="team" value="{{away}}"> {{away}}
+  </div>
+
+
+  <button type="submit" class="pick">Make your pick</button>
+  
+</form>
+
+<li>
+
+	<button class="delete-button" data-id="{{this.id}}">DELETE!</button>
+  </li>
+  
+  <div class="form-group">
+    <label for="ca">Update your pick:</label>
+    <input type="text" id="ca" name="team"> <button class="update" data-id="{{id}}"> update</button>
+  </div>
+ 

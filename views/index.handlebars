@@ -1,0 +1,35 @@
+<hr>
+<h4>Name (Required)</h4>
+<input type="text" id="name" class="form-control" required>
+<br>
+
+
+{{!-- <div class="games.id"></div>
+
+<form>
+  <h3><strong>Pick 1</strong></h3>
+  <div>
+    <div>
+      <img id="Herbivore" alt="RedSkins">
+      <input type="radio" class="question1" name="pick1" value="RedSkins">
+    </div>
+    <h5>VS</h5>
+    <div>
+      <img id="Vegan" alt="Titans">
+      <input type="radio" class="question1" name="pick1" value="Titans">
+    </div> --}}
+    <ul>
+      {{#each games}}
+      {{> games/games-block}}
+
+      {{/each}}
+    </ul>
+
+    {{!--
+  </div> --}}
+</form>
+
+
+
+<button type="submit" id= "submit-button" >Submit</button>
+</form>
