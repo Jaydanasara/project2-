@@ -8,8 +8,8 @@ li {
   font-weight: bold;
 }
 
-.create-update-form {
-  padding: 5px;
+.update-form {
+  padding: 40%;
   margin: 5px;
   background: aqua;
 }
@@ -17,3 +17,4 @@ li {
 .form-group {
   margin-bottom: 5px;
 }
+

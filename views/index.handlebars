@@ -1,35 +1,41 @@
-<hr>
-<h4>Name (Required)</h4>
-<input type="text" id="name" class="form-control" required>
-<br>
+<h1>Football Battle Royale</h1>
 
 
-{{!-- <div class="games.id"></div>
 
-<form>
-  <h3><strong>Pick 1</strong></h3>
-  <div>
-    <div>
-      <img id="Herbivore" alt="RedSkins">
-      <input type="radio" class="question1" name="pick1" value="RedSkins">
+
+
+  {{#each games}}
+  <form data-id="{{this.id}}" id="{{this.id}}" class="create-form" >
+    <div class="form-group">
+      <label for="team" value="{{id}}">{{week16}}</label>
+      <br>
+      <input type="radio" name="team" value="{{this.Home}}" checked> {{Home}}
+      <input type="radio" name="team" value="{{this.away}}"> {{away}}
     </div>
-    <h5>VS</h5>
-    <div>
-      <img id="Vegan" alt="Titans">
-      <input type="radio" class="question1" name="pick1" value="Titans">
-    </div> --}}
-    <ul>
-      {{#each games}}
-      {{> games/games-block}}
 
-      {{/each}}
-    </ul>
-
-    {{!--
-  </div> --}}
-</form>
+    <button data-id="{{this.id}}" type="submit" id="hide">make your pick</button>
+   
+    <button data-id="{{this.id}}" id="update-form" class="send" >Update pick</button>
+  </form>
 
 
+  {{/each}}
 
-<button type="submit" id= "submit-button" >Submit</button>
-</form>
+ <button class="delquote">Delete all your picks</button>
+
+ <section class="banners">
+        <div class="left-half">
+          <article>
+            <img src="assets/images/LeftBanner.png" alt="Left Banner">
+        </article>
+        </div>
+        <div class="right-half">
+          <article>
+            <img src="assets/images/RightBanner.png" alt="Right Banner">
+          </article>
+        </div>
+      </section>
+
+
+
+ <a href="/results">view your picks</a>

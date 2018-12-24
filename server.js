@@ -6,17 +6,17 @@ var app = express();
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
-
+app.use("/assets",express.static("assets"));
+app.use("/images",express.static("images"));
 // Parse application body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Set Handlebars.khjkjj,
 var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
-
-
 
 // Import routes and give the server access to them.
 var routes = require("./controllers/gamesController.js");

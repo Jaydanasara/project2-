@@ -1,61 +1,105 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
-  $(".update").on("click", function(event) {
-    var id = $(this).data("id");
-    var newwinner = {
-      winner: $("#ca").val().trim(),
+
+  $(".delquote").on("click", function(event) {
+
     
-  
-      
-  };
-  
-    // Send the PUT request.
-    $.ajax("/api/user_pick/" + id, {
-      type: "PUT",
-      data: newwinner
+
+    $.ajax("/api/user_pick/", {
+
+      type: "DELETE"
+
     }).then(
+
       function() {
-        console.log("changed winner to", newWinner);
+
+        console.log("rows deleted  ");
+
         // Reload the page to get the updated list
-      
+
+        location.reload();
+
       }
+
     );
+
   });
-  
+
   $(".create-form").on("submit", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
   
+   
+   
+    var btn = $(this).attr("data-id");
+
     var pickedwinner = {
-      winner: $("[name=team]:checked").val().trim()
-      
+      winner: $("input[name=team]:checked", `#${btn}`).val().trim()
+
+  
+     
     };
-  console.log (pickedwinner);
+
+    // if (btn===id){
+    //   document.getElementById("hide").disabled=true;
+    // };
+    
+    console.log (pickedwinner);
+  
     // Send the POST request.
-    $.ajax("/api/user_pick/", {
+    $.ajax("/api/user_pick", {
       type: "POST",
       data: pickedwinner
     }).then(
       function() {
+        // document.getElementById("hide").disabled=true;
+        
         console.log("created Winner");
         // Reload the page to get the updated list
-        location.reload();
+        // location.reload();
       }
     );
   });
+
+
   
-  $(".delete-button").on("click", function(event) {
+
+  $(".send").on("click", function(event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+    // var ids = $('.send').attr("data-id");
+
+    var btn = $(this).attr("data-id");
+    var updatewinner = {
+      winner: $("input[name=team]:checked", `#${btn}`).val().trim()
+      
+    };
+
     var id = $(this).data("id");
-  
-    // Send the DELETE request.
-    $.ajax("/api/user_pick/" + id, {
-      type: "DELETE"
+
+    console.log (updatewinner)
+    console.log(id);
+    // Send the POST request.
+    $.ajax("/api/user_pick/"+id, {
+
+      type: "PUT",
+
+      data: updatewinner
+
     }).then(
+
       function() {
-        console.log(" your choice has been deleted, select a new team!!! ", id);
+        
+        console.log("updated quote");
+
         // Reload the page to get the updated list
-        location.reload();
+
+        location.assign("/");
+
       }
+
     );
+
   });
-  });
+
+});

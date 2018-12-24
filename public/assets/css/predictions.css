@@ -1,0 +1,53 @@
+/* Pen-specific styles */
+* {
+    box-sizing: border-box;
+  }
+
+  html {
+    min-height: 100%;
+    }
+  
+  section {
+    text-align: center;
+  }
+  
+  div {
+    height: 100%;
+  }
+  
+  article {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: 20px;
+  }
+  
+  /* Pattern styles */
+  .banners {
+    display: table;
+    width: 100%;
+  }
+  
+  .left-half {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 20%;
+  }
+  
+  .right-half {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 20%;
+  };
+
+  form{
+    display: flex;
+    justify-content: center;
+    width:40%;
+    position: absolute;
+    left : 60%;
+  };
